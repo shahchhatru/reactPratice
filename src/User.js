@@ -1,15 +1,10 @@
-import React from 'react';
-//import {useState} from 'react';
-
-class User extends React.Component{
-    render(){
-        console.warn('Renderer Method');
-        return(
-            <div>
-                <h1>User {this.props.name}</h1>
-            </div>
-        )
-    }
+import {forwardRef} from 'react';
+function User(props,ref){
+    return(
+        <div>
+            <input type="text" ref={ref}/>
+        </div>
+    )
 }
 
-export default User;
+export default forwardRef(User);

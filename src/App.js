@@ -1,24 +1,18 @@
+import "./App.css"
 
-import './App.css';
-import User from './User.js';
-import React,{useState,useEffect,useRef} from 'react';
-
+import React,{useRef} from "react";
+import User from "./User"
 function App(){
-  const refDiv =useRef();
-  const changeColor=(refDiv)=>{
-    let r=Math.floor(Math.random()*255+1);
-    let g=Math.floor(Math.random()*255+1);
-    let b=Math.floor(Math.random()*255+1);
-    let a=Math.floor(Math.random()*10)/10;
-    refDiv.current.style.backgroundColor="rgba("+r+","+g+","+b+","+a+")";
-  }
+  const InputRef=useRef(null);
   return(
     <>
-    <div class="box-container" ref={refDiv}></div>
-    <button onClick={()=>{changeColor(refDiv)}} >Click</button>
+    <div className="App">
+      <h1>Forward Ref in react</h1>
+      <User ref={InputRef}/>
+      <button onClick={()=>{InputRef.current.style.backgroundColor="red"}}>Update Inputbox</button>
+    </div>
     </>
   )
 }
- 
 
 export default App;
